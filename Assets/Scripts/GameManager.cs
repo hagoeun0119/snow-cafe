@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     public Animator clearAnim;
     public Animator background;
 
+
     public Text completeMaking;
     public Text playTimeTxt;
+    public GameObject gameOver;
 
     void Start()
     {
@@ -37,19 +39,40 @@ public class GameManager : MonoBehaviour
     {
         if (isPlaying)
         {
-            playTime -= Time.deltaTime;
+            if (playTime > 0)
+            { 
+                playTime -= Time.deltaTime;
+            }
 
             int hour = (int)(playTime / 3600);
             int min = (int)((playTime - hour * 3600) / 60);
             int second = (int)(playTime % 60);
 
+            if (hour == 0 && min == 0 && second == 0)
+            {
+                GameOver();
+            }
             playTimeTxt.text = string.Format("{0:00}", hour) + ":" + string.Format("{0:00}", min) + ":" + string.Format("{0:00}", second);
         }
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 
     public void StageEnd()
     {
         clearAnim.SetTrigger("On");
+    }
 
+    public void GameOver()
+    {
+        gameOver.SetActive(true);
+    }
+
+    public void GameRetry()
+    {
+        SceneManager.LoadScene(0);
     }
 }
