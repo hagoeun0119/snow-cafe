@@ -6,7 +6,7 @@ public class DragNDrop : MonoBehaviour
 {
     bool isDraggable;
     bool isDragging;
-    Vector3 colliderPos;
+    public Vector3 colliderPos;
 
     Collider2D objectCollider;
 
