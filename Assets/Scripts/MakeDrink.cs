@@ -8,9 +8,9 @@ using UnityEngine.UI;
 public class MakeDrink : MonoBehaviour
 {
     Rigidbody2D cup;
-    // 랜덤 음료수의 이미지
+
     public Sprite randomDrink;
-    // 음료수에 맞는 재료
+    // ingredients
     public GameObject[] americano;
     public GameObject[] cafeLatte;
     public GameObject[] milkShake;
@@ -19,36 +19,41 @@ public class MakeDrink : MonoBehaviour
     public GameObject[] strawberryShake;
     public GameObject[] vanillaLatte;
     public GameObject[] cafeMocha;
+    public GameObject[] materials;
     public Sprite[] drink;
 
-    // 새로운 음료가 필요한지 확인
     public bool needNewDrink;
-    
-    // 현재까지 맞게 들어간 재료의 개수 확인
-    private int RightIngredient = 0;
 
-    // 맞는 재료가 들어갔는지 확인
+    // Check the number of materials that is right
+    private int RightIngredient = 0;
     private bool isRightIngredient;
 
-    // 필요한 음료의 개수
+    // Check the number of ingredient that is needed
     private int needIngredient;
+    private Vector3 materialPos;
+    private SpriteRenderer randomDrinkSprite;
 
     public GameObject other;
 
+    
+
     void Start()
     {
-        //Rigidbody2D 요소를 가지고 옴
         cup = GetComponent<Rigidbody2D>();
+        randomDrinkSprite = other.GetComponent<RandomDrink>().GetComponent<SpriteRenderer>();
         needNewDrink = true;
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        materialPos = other.gameObject.GetComponent<DragNDrop>().colliderPos;
+        var collisoinObj = other.gameObject;
+
         CheckIsRightDrink();
+
         // Americano: espresso, water 
         if (randomDrink == drink[0])
         {
-            // 배열에 맞는 재료가 있는지 확인
             isRightIngredient = Array.Exists(americano, x => x == other.gameObject);
         }
 
@@ -95,15 +100,15 @@ public class MakeDrink : MonoBehaviour
             isRightIngredient = Array.Exists(cafeMocha, x => x == other.gameObject);
         }
 
-        other.gameObject.SetActive(false);
         CheckMakingDrink(isRightIngredient, needIngredient);
+        GameObject newMaterial = Instantiate(collisoinObj, materialPos, Quaternion.identity);
+        Destroy(other.gameObject);
     }
 
     void Update()
     {
-        randomDrink = other.GetComponent<RandomDrink>().GetComponent<SpriteRenderer>().sprite;
+        randomDrink = randomDrinkSprite.sprite;
     }
-
     void CheckIsRightDrink()
     {
         if (randomDrink == drink[0] || randomDrink == drink[1])
@@ -143,5 +148,4 @@ public class MakeDrink : MonoBehaviour
             needNewDrink = true;
         }
     }
-
 }
