@@ -6,6 +6,17 @@ TagManager:
   tags:
   - randomDrink
   - Canvas
+  - ChocolateSyrup
+  - Cinnamon
+  - CoffeePowder
+  - Cream
+  - IceBox
+  - IceCream
+  - Milk
+  - Strawberry
+  - Syrup
+  - Water
+  - Espresso
   layers:
   - Default
   - TransparentFX
