@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6695689618184037332}
   m_Layer: 0
   m_Name: ice box
-  m_TagString: Untagged
+  m_TagString: IceBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

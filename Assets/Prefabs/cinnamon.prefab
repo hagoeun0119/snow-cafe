@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8576830357728686043}
   m_Layer: 0
   m_Name: cinnamon
-  m_TagString: Untagged
+  m_TagString: Cinnamon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

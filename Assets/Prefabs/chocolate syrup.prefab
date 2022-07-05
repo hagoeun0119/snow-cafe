@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6555540295652466815}
   m_Layer: 0
   m_Name: chocolate syrup
-  m_TagString: Untagged
+  m_TagString: ChocolateSyrup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
