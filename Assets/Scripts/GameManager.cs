@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public GameObject recipeImg;
     public GameObject recipeBtn;
     public GameObject gameOver;
+    public GameObject gameClear;
     public GameObject other;
 
     private MakeDrink makeDrink;
@@ -100,12 +101,12 @@ public class GameManager : MonoBehaviour
                 if (stage < 5 && makeDrink.score == 0)
                 {
                     nextScore += nextScore;
-                    makeDrink.score += nextScore;
+                    makeDrink.score += 2;
                     StageEnd();
                 }
                 else if (stage == 5 && makeDrink.score == 0)
                 {
-                    Debug.Log("Good");
+                    GameClear();
                 }
             }
             else
@@ -134,5 +135,10 @@ public class GameManager : MonoBehaviour
     public void GameRetry()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void GameClear()
+    {
+        gameClear.SetActive(true);
     }
 }
