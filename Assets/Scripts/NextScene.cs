@@ -10,4 +10,9 @@ public class NextScene : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void toDescription()
+    {
+        SceneManager.LoadScene(2);
+    }
+
 }

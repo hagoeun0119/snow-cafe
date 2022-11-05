@@ -321,7 +321,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 139347423}
         m_TargetAssemblyTypeName: NextScene, Assembly-CSharp
-        m_MethodName: next
+        m_MethodName: toDescription
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

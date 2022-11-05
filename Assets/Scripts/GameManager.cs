@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
                 if (stage < 5 && makeDrink.score == 0)
                 {
                     nextScore += nextScore;
-                    makeDrink.score += 1;
+                    makeDrink.score += 2;
                     StageEnd();
                 }
                 else if (stage == 5 && makeDrink.score == 0)
