@@ -100,8 +100,8 @@ public class GameManager : MonoBehaviour
                 playTime -= Time.deltaTime;
                 if (stage < 5 && makeDrink.score == 0)
                 {
-                    nextScore += nextScore;
-                    makeDrink.score += 2;
+                    nextScore += 1;
+                    makeDrink.score += nextScore;
                     StageEnd();
                 }
                 else if (stage == 5 && makeDrink.score == 0)
